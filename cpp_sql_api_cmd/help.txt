@@ -1,0 +1,14 @@
+Usage:
+  ./cpp_sql_api_cmd.exe [argument] [options]
+
+  Argument is SQL query syrrounded by "".
+
+Options:
+  -h                             Display this help message.
+  -f  <file>                     Supply SQL queries file. If file is specified the argument will be discarded.
+                                 Each separate query must be in its own single line.
+  -db <database>                 Specifies a database. Default is "vntu_iq".
+  -fm all                        Default. Executes fetch_all on mysqli_result obtained after query.
+      assoc                      Executes fetch_assoc on mysqli_result obtained after query.
+      array                      Executes fetch_array on mysqli_result obtained after query.
+      fields                     Executes fetch_fields  on mysqli_result obtained after query.
