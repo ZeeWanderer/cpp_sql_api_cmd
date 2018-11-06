@@ -134,7 +134,7 @@ int main(int argc, char** argv)
 				cerr << action_str_delimmer_ << endl;
 				cerr << query + ":" << endl;
 				cerr << action_str_delimmer_ << endl;
-				result = api->sql_query(db_, query, fetch_cmd_);
+				result = api->sql_query(query, db_, fetch_cmd_);
 				try
 				{
 					cerr << nlohmann::json::parse(result) << endl;
@@ -149,7 +149,7 @@ int main(int argc, char** argv)
 		}
 		else
 		{
-			result = api->sql_query(db_, argv[argument_id], fetch_cmd_);
+			result = api->sql_query(argv[argument_id], db_, fetch_cmd_);
 			try
 			{
 				cerr << action_str_delimmer_ << endl;
