@@ -1,5 +1,6 @@
 #include "main.h"
 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -27,6 +28,23 @@ int argument_id = 1;
 
 bool bIsQueryFileSpecified = false;
 
+std::string& ltrim(std::string& str, const std::string& chars = "\t\n\v\f\r ")
+{
+	str.erase(0, str.find_first_not_of(chars));
+	return str;
+}
+
+std::string& rtrim(std::string& str, const std::string& chars = "\t\n\v\f\r ")
+{
+	str.erase(str.find_last_not_of(chars) + 1);
+	return str;
+}
+
+std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ")
+{
+	return ltrim(rtrim(str, chars), chars);
+}
+
 void init_cmd_map()
 {
 	cmd_map_["-f"] = [](int& idx, int& argc, char** argv)
@@ -52,8 +70,11 @@ void init_cmd_map()
 
 		while (!q_file.eof())
 		{
-			std::getline(q_file, query);
+			std::getline(q_file, query, ';');
+			trim(query);
 			if (query.size() == 0)continue;
+			std::replace(query.begin(), query.end(), '\n', ' ');
+			query.erase(std::remove(query.begin(), query.end(), '\t'), query.end());
 			query_list.push_back(query);
 		}
 	};

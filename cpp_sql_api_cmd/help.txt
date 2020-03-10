@@ -5,8 +5,9 @@ Usage:
 
 Options:
   -h                             Display this help message.
-  -f  <file>                     Supply SQL queries file. If file is specified the argument will be discarded.
-                                 Each separate query must be in its own single line.
+  -f  <file>                     Supply SQL queries file.
+                                 Each separate query must end with ';' character.
+                                 Note: '\t' characters are erased, '\n' - are replaced by ' '
   -db <database>                 Specifies a database. Default is "vntu_iq".
   -fm all                        Default. Executes fetch_all on mysqli_result obtained after query.
       assoc                      Executes fetch_assoc on mysqli_result obtained after query.
