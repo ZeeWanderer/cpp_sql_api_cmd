@@ -1,0 +1,27 @@
+CREATE TABLE sql_cpp_colors (color_ID int NOT NULL,
+color varchar(255) NOT NULL,
+PRIMARY KEY (color_ID));
+
+CREATE TABLE sql_cpp_shapes (shape_ID int NOT NULL,
+color_ID int NOT NULL,
+shape varchar(255) NOT NULL,
+PRIMARY KEY (shape_ID),
+FOREIGN KEY (color_ID) REFERENCES sql_cpp_colors(color_ID) ON DELETE CASCADE);
+
+INSERT INTO sql_cpp_colors (color_ID, color) VALUES 
+(1, "red"), 
+(2, "blue");
+INSERT INTO sql_cpp_shapes (shape_ID, color_ID, shape) VALUES 
+(1, 1, "square"), 
+(2, 1, "triangle"), 
+(3, 2, "circle");
+
+SELECT * FROM sql_cpp_colors;
+SELECT * FROM sql_cpp_shapes;
+
+DELETE FROM sql_cpp_colors WHERE color_ID=1;
+SELECT * FROM sql_cpp_colors;
+SELECT * FROM sql_cpp_shapes;
+
+DROP TABLE sql_cpp_shapes;
+DROP TABLE sql_cpp_colors;

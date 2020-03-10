@@ -1,0 +1,2 @@
+DROP TABLE `01-16-026-news`;
+DESCRIBE `01-16-026-news`;

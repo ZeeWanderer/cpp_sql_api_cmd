@@ -1,0 +1,2 @@
+DELETE FROM `01-16-026-news`;
+SELECT * FROM `01-16-026-news`;

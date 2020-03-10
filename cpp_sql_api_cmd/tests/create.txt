@@ -1,0 +1,1 @@
+CREATE TABLE `01-16-026-news` ( news_id INT NOT NULL auto_increment, heading VARCHAR(48), body TEXT, date DATE, author_name VARCHAR(48), author_email VARCHAR(48), PRIMARY KEY(news_id));

@@ -1,0 +1,6 @@
+CREATE TABLE 01_16_026_test ( news_id INT NOT NULL auto_increment, heading VARCHAR(48), body TEXT, date DATE, author_name VARCHAR(48), author_email VARCHAR(48), PRIMARY KEY(news_id));
+INSERT INTO 01_16_026_test VALUES(0,'Success','Succesfull insertion into table','2018-10-30','Kulyk','mxx888777@gmail.com');
+SELECT * FROM 01_16_026_test;
+DELETE FROM 01_16_026_test;
+SELECT * FROM 01_16_026_test;
+DROP TABLE 01_16_026_test;
