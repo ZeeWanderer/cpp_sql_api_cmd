@@ -127,38 +127,38 @@ int main(int argc, char** argv)
 
 		if (bIsQueryFileSpecified)
 		{
-			cerr << action_str_delimmer_ << endl;
-			cerr << "-------------EXECUTING_SQL_QUERIES_FROM_FILE_--------------" << endl;
+			cout << action_str_delimmer_ << endl;
+			cout << "-------------EXECUTING_SQL_QUERIES_FROM_FILE_--------------" << endl;
 			for (auto& query : query_list)
 			{
-				cerr << action_str_delimmer_ << endl;
-				cerr << query + ":" << endl;
-				cerr << action_str_delimmer_ << endl;
+				cout << action_str_delimmer_ << endl;
+				cout << query + ":" << endl;
+				cout << action_str_delimmer_ << endl;
 				result = api->sql_query(query, db_, fetch_cmd_);
 				try
 				{
-					cerr << nlohmann::json::parse(result) << endl;
+					cout << nlohmann::json::parse(result) << endl;
 				}
 				catch (const nlohmann::json::parse_error&)
 				{
-					cerr << result << endl;
+					cout << result << endl;
 				}
 			}
 
-			cerr << "----------------------SCENARIO_ENDED-----------------------" << endl;
+			cout << "----------------------SCENARIO_ENDED-----------------------" << endl;
 		}
 		else
 		{
 			result = api->sql_query(argv[argument_id], db_, fetch_cmd_);
 			try
 			{
-				cerr << action_str_delimmer_ << endl;
-				cerr << nlohmann::json::parse(result) << endl;
-				cerr << action_str_delimmer_ << endl;
+				cout << action_str_delimmer_ << endl;
+				cout << nlohmann::json::parse(result) << endl;
+				cout << action_str_delimmer_ << endl;
 			}
 			catch (const nlohmann::json::parse_error&)
 			{
-				cerr << result << endl;
+				cout << result << endl;
 			}
 		}
 
@@ -190,7 +190,7 @@ void display_help_file(std::string path)
 	while (!help_file.eof())
 	{
 		std::getline(help_file, help_line_);
-		cerr << help_line_ << endl;
+		cout << help_line_ << endl;
 	}
 }
 
