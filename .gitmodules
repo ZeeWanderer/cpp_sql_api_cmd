@@ -1,0 +1,5 @@
+[submodule "cpp_sql_api"]
+	path = cpp_sql_api
+	url = https://github.com/ZeeWanderer/cpp_sql_api
+	ignore = dirty
+
